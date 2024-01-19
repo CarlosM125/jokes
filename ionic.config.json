@@ -1,0 +1,7 @@
+{
+  "name": "jokesmoya",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

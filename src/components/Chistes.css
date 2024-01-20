@@ -1,0 +1,109 @@
+/* src/components/Chistes.css */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: 300% 300%;
+  animation: moveGradient 8s linear infinite alternate-reverse;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px; /* Radio de los bordes */
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.fondo-gradiente-Any {
+  background: linear-gradient(to right, #0093e9, #80d0c7);
+}
+
+.fondo-gradiente-Programming {
+  background: linear-gradient(to right, #f4d03f, #16a085);
+}
+
+.fondo-gradiente-Miscellaneous {
+  background: linear-gradient(to right, #fbab7e, #f7ce68);
+}
+
+.content {
+  text-align: center;
+  opacity: 0;
+  animation: slideInUp 1s ease-out forwards;
+  position: relative;
+
+  z-index: 1; /* Para que el contenido esté sobre el borde */
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+select {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.chiste-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin: 20px;
+}
+
+.fondo-gradiente-Any .chiste-card,
+.fondo-gradiente-Programming .chiste-card,
+.fondo-gradiente-Miscellaneous .chiste-card {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideInUp 1s ease-out forwards;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+/* Borde estilo "neón" */
+.container::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background: linear-gradient(45deg, #3498db, #e74c3c);
+  z-index: -1;
+  border-radius: 15px; /* Ajusta según el radio de los bordes del contenedor */
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.8), 0 0 40px rgba(231, 76, 60, 0.8);
+}
